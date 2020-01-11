@@ -1,31 +1,28 @@
-( function( $ ) {// jscs:ignore validateLineBreaks
-	// Site title and description.
-	wp.customize( 'blogname', function( value ) {
+( function( $ ) {
+	wp.customize( 'name', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-name a' ).text( to );
+			$( '.name a' ).text( to );
 		} );
 	} );
-	wp.customize( 'blogdescription', function( value ) {
+	wp.customize( 'description', function( value ) {
 		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+			$( '.description' ).text( to );
 		} );
 	} );
-
-    // Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
-				$( '.site-name, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
+				$( '.site-name, '.description' ).css( {
+					'clip': 'rect(2px, 2px, 2px, 2px)',
 					'position': 'absolute'
 				} );
 			} else {
-				$( '.site-name, .site-description' ).css( {
+				$( '.name, .description' ).css( {
 					'clip': 'auto',
 					'position': 'relative'
 				} );
 
-				$( '.site-name, .site-name a, .site-description, .site-description a' ).css( {
+				$( '.name, .name a, .description, .description a' ).css( {
 					color: to
 				} );
 			}
